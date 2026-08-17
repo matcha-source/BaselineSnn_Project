@@ -51,15 +51,17 @@ def main() -> None:
     #     num_frames=5,
     # )
 
+    accuracy = (predictions == labels).float().mean()
+
     print(f" Input image shape: {images.shape}")
     print(f" labels shape: {labels.shape}")
     print(f" Input spike shape: {spikes.shape}")
     print(f" Output spike shape: {output_spikes.shape}")
     print(f"Average spike rate: {spike_rate}")
 
-    print(f"Predictions: {predictions}")
     print(f"Predictions: {predictions[:10]}")
     print(f"Labels: {labels[:10]}")
+    print(f"Initial accuracy: {accuracy.item() * 100: .2f}%")
     #print(test_images.shape)
 
     # print("=" * 50)
