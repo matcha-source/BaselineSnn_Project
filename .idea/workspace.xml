@@ -1,27 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1957babc-20b9-407f-a7b3-b5cdbd05fc00" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/BaslineSNN.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+    <list default="true" id="1957babc-20b9-407f-a7b3-b5cdbd05fc00" name="Changes" comment="Creation of different directories">
+      <change afterPath="$PROJECT_DIR$/configs/config.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/datasets/data_loader.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/datasets/mnist_dataset.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/lif_neuron.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/snn_model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/surrogate.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_torch.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/test_lif_neuron.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/test_snn_model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/test_surrogate.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/decoding.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/encoding.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/reproducibility.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/visualization.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/BaslineSNN.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/BaslineSNN.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6,
-  "fromUser": false
-}]]></component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;matcha-source&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/matcha-source/BaselineSnn_Project.git&quot;,
+    &quot;accountId&quot;: &quot;3c11685f-9f5a-4325-a885-e4db45ad5501&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6,
+  &quot;fromUser&quot;: false
+}</component>
   <component name="ProjectId" id="3HJleSmbsntuVqqhS54C10nktSS" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -30,11 +60,17 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python tests.Python tests for tests.test_lif_neuron.test_lif_neuron_does_not_spike_below_threshold.executor": "Run",
+    "Python tests.Python tests for tests.test_lif_neuron.test_lif_neuron_generates_spike.executor": "Run",
+    "Python tests.Python tests for tests.test_snn_model.test_snn_output_shape.executor": "Run",
+    "Python tests.Python tests for tests.test_surrogate.test_surrogate_generates_binary_spikes.executor": "Run",
     "Python.main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master"
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -42,7 +78,7 @@
       <recent name="E:\Research\PycharmProjects\BaslineSNN" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.main">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BaslineSNN" />
       <option name="ENV_FILES" value="" />
@@ -66,9 +102,77 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="Python tests for tests.test_lif_neuron.test_lif_neuron_does_not_spike_below_threshold" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="BaslineSNN" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;tests.test_lif_neuron.test_lif_neuron_does_not_spike_below_threshold&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for tests.test_lif_neuron.test_lif_neuron_generates_spike" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="BaslineSNN" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;tests.test_lif_neuron.test_lif_neuron_generates_spike&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for tests.test_snn_model.test_snn_output_shape" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="BaslineSNN" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;tests.test_snn_model.test_snn_output_shape&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for tests.test_surrogate.test_surrogate_generates_binary_spikes" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="BaslineSNN" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;tests.test_surrogate.test_surrogate_generates_binary_spikes&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.main" />
+        <item itemvalue="Python tests.Python tests for tests.test_snn_model.test_snn_output_shape" />
+        <item itemvalue="Python tests.Python tests for tests.test_surrogate.test_surrogate_generates_binary_spikes" />
+        <item itemvalue="Python tests.Python tests for tests.test_lif_neuron.test_lif_neuron_does_not_spike_below_threshold" />
+        <item itemvalue="Python tests.Python tests for tests.test_lif_neuron.test_lif_neuron_generates_spike" />
       </list>
     </recent_temporary>
   </component>
@@ -87,17 +191,19 @@
       <option name="presentableId" value="Default" />
       <updated>1785594147280</updated>
     </task>
+    <task id="LOCAL-00001" summary="Creation of different directories">
+      <option name="closed" value="true" />
+      <created>1785598247324</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1785598247324</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/main.py</url>
-          <line>8</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Creation of different directories" />
+    <option name="LAST_COMMIT_MESSAGE" value="Creation of different directories" />
   </component>
 </project>
