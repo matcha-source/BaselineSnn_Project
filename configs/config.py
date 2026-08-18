@@ -31,6 +31,10 @@ IMAGE_WIDTH = 28
 # Number of classes
 NUM_CLASSES = 10
 
+#Training parameters
+LEARNING_RATE = 0.001
+EPOCHS = 5
+
 # Training parameters (used later)
 BATCH_SIZE = 128
 NUM_WORKERS = 2

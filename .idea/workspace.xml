@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1957babc-20b9-407f-a7b3-b5cdbd05fc00" name="Changes" comment="Creation of different directories while building the baseline architecture">
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+    <list default="true" id="1957babc-20b9-407f-a7b3-b5cdbd05fc00" name="Changes" comment="created trainer.py to train the snn for one epoch and created the file trainSNN.py">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/training/trainSNN.py" beforeDir="false" afterPath="$PROJECT_DIR$/training/trainSNN.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/training/trainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/training/trainer.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +19,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -40,28 +47,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Python tests.Python tests for tests.test_lif_neuron.test_lif_neuron_does_not_spike_below_threshold.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests for tests.test_lif_neuron.test_lif_neuron_generates_spike.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests for tests.test_snn_model.test_snn_output_shape.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests for tests.test_surrogate.test_surrogate_generates_binary_spikes.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python tests.Python tests for tests.test_lif_neuron.test_lif_neuron_does_not_spike_below_threshold.executor": "Run",
+    "Python tests.Python tests for tests.test_lif_neuron.test_lif_neuron_generates_spike.executor": "Run",
+    "Python tests.Python tests for tests.test_snn_model.test_snn_output_shape.executor": "Run",
+    "Python tests.Python tests for tests.test_surrogate.test_surrogate_generates_binary_spikes.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.trainSNN.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "trainingBasline",
+    "ignore.virus.scanning.warn.message": "true",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Research\PycharmProjects\BaslineSNN" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.trainSNN">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BaslineSNN" />
       <option name="ENV_FILES" value="" />
@@ -85,6 +93,29 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="trainSNN" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="BaslineSNN" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/training" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/training/trainSNN.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Python tests for tests.test_lif_neuron.test_lif_neuron_does_not_spike_below_threshold" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="BaslineSNN" />
       <option name="ENV_FILES" value="" />
@@ -98,22 +129,6 @@
       <option name="RUN_TOOL" value="" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;tests.test_lif_neuron.test_lif_neuron_does_not_spike_below_threshold&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Python tests for tests.test_lif_neuron.test_lif_neuron_generates_spike" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
-      <module name="BaslineSNN" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="RUN_TOOL" value="" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;tests.test_lif_neuron.test_lif_neuron_generates_spike&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -151,11 +166,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.trainSNN" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python tests.Python tests for tests.test_snn_model.test_snn_output_shape" />
         <item itemvalue="Python tests.Python tests for tests.test_surrogate.test_surrogate_generates_binary_spikes" />
         <item itemvalue="Python tests.Python tests for tests.test_lif_neuron.test_lif_neuron_does_not_spike_below_threshold" />
-        <item itemvalue="Python tests.Python tests for tests.test_lif_neuron.test_lif_neuron_generates_spike" />
       </list>
     </recent_temporary>
   </component>
@@ -206,7 +221,23 @@
       <option name="project" value="LOCAL" />
       <updated>1786958195421</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Initial accuracy calculation">
+      <option name="closed" value="true" />
+      <created>1786958365709</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1786958365709</updated>
+    </task>
+    <task id="LOCAL-00006" summary="created trainer.py to train the snn for one epoch and created the file trainSNN.py">
+      <option name="closed" value="true" />
+      <created>1787030180977</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1787030180977</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -223,6 +254,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Creation of different directories" />
     <MESSAGE value="Creation of different directories while building the baseline architecture" />
-    <option name="LAST_COMMIT_MESSAGE" value="Creation of different directories while building the baseline architecture" />
+    <MESSAGE value="Initial accuracy calculation" />
+    <MESSAGE value="created trainer.py to train the snn for one epoch and created the file trainSNN.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="created trainer.py to train the snn for one epoch and created the file trainSNN.py" />
   </component>
 </project>
