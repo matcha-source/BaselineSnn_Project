@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1957babc-20b9-407f-a7b3-b5cdbd05fc00" name="Changes" comment="Creation of different directories while building the baseline architecture">
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+    <list default="true" id="1957babc-20b9-407f-a7b3-b5cdbd05fc00" name="Changes" comment="Initial accuracy calculation">
+      <change afterPath="$PROJECT_DIR$/training/trainSNN.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/training/trainer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/configs/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/configs/config.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +20,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -51,7 +59,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "trainingBasline",
     "ignore.virus.scanning.warn.message": "true",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
@@ -206,7 +214,15 @@
       <option name="project" value="LOCAL" />
       <updated>1786958195421</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Initial accuracy calculation">
+      <option name="closed" value="true" />
+      <created>1786958365709</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1786958365709</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -223,6 +239,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Creation of different directories" />
     <MESSAGE value="Creation of different directories while building the baseline architecture" />
-    <option name="LAST_COMMIT_MESSAGE" value="Creation of different directories while building the baseline architecture" />
+    <MESSAGE value="Initial accuracy calculation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial accuracy calculation" />
   </component>
 </project>
