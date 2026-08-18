@@ -4,9 +4,7 @@ MNIST dataset loader.
 This module provides functions for downloading and loading the MNIST dataset.
 """
 
-from torchvision import datasets
-from torchvision import transforms
-
+from torchvision import datasets, transforms
 from configs.config import DATASET_ROOT
 
 
