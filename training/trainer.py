@@ -37,8 +37,8 @@ def train_one_epoch(
         spike_counts = output_spikes.sum(dim=0)
 
         loss = criterion(spike_counts, labels)
-        loss.backward()
-        optimizer.step()
+        loss.backward()     #Calculates the gradient
+        optimizer.step()    #Use the gradient to modify the trainable weights
 
         predictions = decode_spike_count(output_spikes)
 
