@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1957babc-20b9-407f-a7b3-b5cdbd05fc00" name="Changes" comment="Merge branch 'master' of https://github.com/matcha-source/BaselineSnn_Project&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
-      <change afterPath="$PROJECT_DIR$/evaluation/evaluator.py" afterDir="false" />
+    <list default="true" id="1957babc-20b9-407f-a7b3-b5cdbd05fc00" name="Changes" comment="Refactored the data_loader and created the evaluator file">
+      <change afterPath="$PROJECT_DIR$/evaluation/metrics.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datasets/data_loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/datasets/data_loader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datasets/mnist_dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/datasets/mnist_dataset.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evaluation/evaluator.py" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/evaluator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/training/trainSNN.py" beforeDir="false" afterPath="$PROJECT_DIR$/training/trainSNN.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,23 +49,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python tests.Python tests for tests.test_lif_neuron.test_lif_neuron_does_not_spike_below_threshold.executor": "Run",
-    "Python tests.Python tests for tests.test_lif_neuron.test_lif_neuron_generates_spike.executor": "Run",
-    "Python tests.Python tests for tests.test_snn_model.test_snn_output_shape.executor": "Run",
-    "Python tests.Python tests for tests.test_surrogate.test_surrogate_generates_binary_spikes.executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.trainSNN.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "evaluation",
-    "ignore.virus.scanning.warn.message": "true",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python tests.Python tests for tests.test_lif_neuron.test_lif_neuron_does_not_spike_below_threshold.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_lif_neuron.test_lif_neuron_generates_spike.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_snn_model.test_snn_output_shape.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_surrogate.test_surrogate_generates_binary_spikes.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.trainSNN.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;evaluation&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Research\PycharmProjects\BaslineSNN" />
@@ -246,7 +247,15 @@
       <option name="project" value="LOCAL" />
       <updated>1787044258216</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Refactored the data_loader and created the evaluator file">
+      <option name="closed" value="true" />
+      <created>1787047131177</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1787047131177</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -265,6 +274,7 @@
     <MESSAGE value="Creation of different directories while building the baseline architecture" />
     <MESSAGE value="Initial accuracy calculation" />
     <MESSAGE value="created trainer.py to train the snn for one epoch and created the file trainSNN.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="created trainer.py to train the snn for one epoch and created the file trainSNN.py" />
+    <MESSAGE value="Refactored the data_loader and created the evaluator file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored the data_loader and created the evaluator file" />
   </component>
 </project>

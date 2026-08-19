@@ -34,7 +34,7 @@ def create_datasets():
     )
     return train_dataset, validation_dataset, test_dataset
 
-def create_dataloader():
+def create_dataloaders():
     train_dataset, validation_dataset, test_dataset = create_datasets()
     train_loader = DataLoader(
         train_dataset,
