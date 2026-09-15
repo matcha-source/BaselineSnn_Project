@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 import torch
+import time
 from torch import nn
 
 from utils.encoding import poisson_encoder
@@ -41,3 +42,35 @@ def evaluate(
     avrg_loss = total_loss / total_samples
     accuracy = total_correct / total_samples
     return avrg_loss, accuracy
+
+def parameter_count(model: nn.Module) -> float:
+    number_of_parameters = sum(
+        parameter.numel()
+        for parameter in model.parameters()
+        if parameter.requires_grad
+    )
+    return number_of_parameters / 1e6
+
+def inference_time(
+        model: nn.Module,
+        dataloader: torch.utils.data.DataLoader,
+        device: torch.device,
+):
+   torch.cuda.synchronize()
+   model.eval()
+
+   total_samples = 0
+   start_time = time.perf_counter()
+
+   with torch.no_grad():
+       for inputs, _ in dataloader:
+           inputs = inputs.to(device)
+           model(inputs)
+           total_samples += inputs.size(0)
+   torch.cuda.synchronize()
+   end_time = time.perf_counter()
+   total_time = end_time - start_time
+   average_time = total_time / total_samples
+   throughput = total_samples / total_time
+
+   return total_time, average_time, throughput

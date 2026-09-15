@@ -3,7 +3,7 @@
 # Press Shift+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 import torch
-from datasets.data_loader import create_dataloader
+from datasets.data_loader import create_dataloaders
 from configs.config import RANDOM_SEED, TIME_STEPS
 from utils.reproducibility import set_seed
 #from utils.visualization import show_image, show_spike_frames
@@ -22,7 +22,7 @@ def main() -> None:
     )
     print(f"Using device: {device}")
 
-    train_loader = create_dataloader(train=True)
+    train_loader = create_dataloaders(train=True)
     #test_loader = create_dataloader(train=False)
 
     images, labels = next(iter(train_loader))

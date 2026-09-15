@@ -1,38 +1,55 @@
 """ Train the SNN model on MNIST """
 
 from __future__ import annotations
+
+import time
+
 import torch
+from matplotlib import pyplot as plt
 from torch import nn
 from pathlib import Path
 
 from sklearn.metrics import (
     classification_report,
-    confusion_matrix
+    confusion_matrix,
+    ConfusionMatrixDisplay
 )
 
 from configs.config import (
     EPOCHS,
     LEARNING_RATE,
     TIME_STEPS,
-    RANDOM_SEED
+    RANDOM_SEED, NUM_CLASSES
 )
 from datasets.data_loader import create_dataloaders
 from models.snn_model import BaselineSNN
 from training.trainer import train_one_epoch
+from utils.result import save_history
 from utils.reproducibility import set_seed
-from evaluation.evaluator import evaluate
+from evaluation.evaluator import evaluate, parameter_count, inference_time
 from evaluation.metrics import calculate_class_accuracy, collect_predictions
+from evaluation.snn_metrics import calculate_spike_rate
+from evaluation.plot_results import plot_confusion_matrix
 
-def main() -> None:
+def baseline_main() -> None:
     set_seed(RANDOM_SEED)
-    labels = torch.Tensor
-    predictions = torch.Tensor
     device = torch.device(
         "cuda"
         if torch.cuda.is_available()
         else "cpu"
     )
     print("Using device:", device)
+
+    history = {
+        "train_loss": [],
+        "train_accuracy": [],
+        "validation_loss": [],
+        "validation_accuracy": [],
+        "epoch_time": [],
+        "total_training_time": 0.0,
+    }
+
+    total_start_time = time.perf_counter()
 
     train_loader, validation_loader, test_loader = create_dataloaders()
     model = BaselineSNN().to(device)
@@ -41,6 +58,7 @@ def main() -> None:
     best_validation_accuracy = 0.0
 
     for epoch in range(EPOCHS):
+        epoch_start_time = time.perf_counter()
         train_loss, train_accuracy = train_one_epoch(
             model=model,
             dataloader=train_loader,
@@ -55,13 +73,20 @@ def main() -> None:
             device=device,
             time_steps=TIME_STEPS,
         )
+        epoch_end_time = time.perf_counter()
+        epoch_time = epoch_end_time - epoch_start_time
+
+        history["train_loss"].append(train_loss)
+        history["train_accuracy"].append(train_accuracy)
+        history["validation_loss"].append(validation_loss)
+        history["validation_accuracy"].append(validation_accuracy)
+        history["epoch_time"].append(epoch_time)
 
         print(
             f"Epoch [{epoch + 1}/{EPOCHS}] "
             f"Train Loss: {train_loss:.4f} "
-            f"Train Accuracy: {train_accuracy * 100:.2f}% "
-            f"Validation Loss: {validation_loss:.4f} "
             f"Validation Accuracy: {validation_accuracy * 100:.2f}% "
+            f"Time: {epoch_time:.2f} s"
         )
 
         if validation_accuracy > best_validation_accuracy:
@@ -82,6 +107,17 @@ def main() -> None:
                 model.state_dict(),
                 checkpoint_dir / "best_model.pth",
             )
+
+    total_end_time = time.perf_counter()
+    total_training_time = total_end_time - total_start_time
+    history["total_training_time"] = total_training_time
+    save_history(history, "../results/history/baseline_snn_history.json")
+
+    print(
+        f"\nTotal training time: "
+        f"{total_training_time:.2f} seconds"
+    )
+
     model.load_state_dict(
         torch.load(
             "checkpoints/best_model.pth",
@@ -116,6 +152,9 @@ def main() -> None:
             f"{accuracy * 100:.2f}%"
         )
 
+    # classification_matrix = calculate_classification_matrix(labels=labels, predictions=predictions)
+    # print(f"classification_matrix: {classification_matrix}")
+
     report = classification_report(
         labels.cpu().numpy(),
         predictions.cpu().numpy(),
@@ -123,11 +162,30 @@ def main() -> None:
     )
     print(f"classification_report: {report}")
 
+    param_count = parameter_count(model)
+    print(f"param_count: {param_count}")
+
+    total_time, average_time, throughput = inference_time(
+        model,
+        test_loader,
+        device
+    )
+
+    print(f"Total inference time: {total_time:.4f} seconds")
+    print(f"Average time: {average_time * 1000:.4f} ms/sample")
+    print(f"Throughput: {throughput:.2f} samples/sec")
+
     matrix = confusion_matrix(
         labels.cpu().numpy(),
         predictions.cpu().numpy(),
     )
-    print(f"Confusion matrix: {matrix}")
+
+    matrix_display = ConfusionMatrixDisplay(
+        matrix,
+        display_labels=list(range(NUM_CLASSES)),
+    )
+    matrix_display.plot()
+    plt.show()
 
 if __name__ == "__main__":
-    main()
+    baseline_main()
