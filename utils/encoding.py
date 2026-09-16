@@ -21,6 +21,3 @@ def poisson_encoder(
 
     spikes = random_values < images.unsqueeze(0)
     return spikes.float()
-
-def calculate_spike_rate(spikes: torch.Tensor) -> float:
-    return spikes.float().mean().item()

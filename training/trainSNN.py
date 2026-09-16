@@ -24,7 +24,7 @@ from configs.config import (
 from datasets.data_loader import create_dataloaders
 from models.snn_model import BaselineSNN
 from training.trainer import train_one_epoch
-from utils.result import save_history
+from utils.result import ResultsManager
 from utils.reproducibility import set_seed
 from evaluation.evaluator import evaluate, parameter_count, inference_time
 from evaluation.metrics import calculate_class_accuracy, collect_predictions
@@ -40,14 +40,18 @@ def baseline_main() -> None:
     )
     print("Using device:", device)
 
-    history = {
-        "train_loss": [],
-        "train_accuracy": [],
-        "validation_loss": [],
-        "validation_accuracy": [],
-        "epoch_time": [],
-        "total_training_time": 0.0,
-    }
+    results_manager = ResultsManager(
+        experiment_name="baseline_snn",
+    )
+    results_manager.add_experiment_config({
+        "model": "BaselineSNN",
+        "dataset": "MNIST",
+        "epochs": EPOCHS,
+        "learning_rate": LEARNING_RATE,
+        "time_steps": TIME_STEPS,
+        "optimizer": "Adam",
+        "loss_function": "CrossEntropyLoss"
+    })
 
     total_start_time = time.perf_counter()
 
@@ -76,11 +80,15 @@ def baseline_main() -> None:
         epoch_end_time = time.perf_counter()
         epoch_time = epoch_end_time - epoch_start_time
 
-        history["train_loss"].append(train_loss)
-        history["train_accuracy"].append(train_accuracy)
-        history["validation_loss"].append(validation_loss)
-        history["validation_accuracy"].append(validation_accuracy)
-        history["epoch_time"].append(epoch_time)
+        results_manager.add_training_epoch(
+            epochs=epoch + 1,
+            train_loss=train_loss,
+            train_accuracy=train_accuracy,
+            validation_loss=validation_loss,
+            validation_accuracy=validation_accuracy,
+            epoch_time_seconds=epoch_time
+        )
+        results_manager.save()
 
         print(
             f"Epoch [{epoch + 1}/{EPOCHS}] "
@@ -110,8 +118,12 @@ def baseline_main() -> None:
 
     total_end_time = time.perf_counter()
     total_training_time = total_end_time - total_start_time
-    history["total_training_time"] = total_training_time
-    save_history(history, "../results/history/baseline_snn_history.json")
+    # Find the best validation accuracy and best epoch
+    results_manager.add_training_summary(
+        total_training_time=total_training_time
+    )
+    results_manager.save()
+    #save_history(history, "../results/history/baseline_snn_history.json")
 
     print(
         f"\nTotal training time: "
@@ -170,6 +182,25 @@ def baseline_main() -> None:
         test_loader,
         device
     )
+
+    results_manager.add_evaluation_results(
+        classification_metrics=report,
+        performance={
+            "inference_time": total_time,
+            "average_time": average_time,
+            "throughput": throughput,
+        },
+        model={
+            "trainable_parameters": param_count,
+        },
+        snn_metrics={
+            "time_steps": TIME_STEPS,
+            "total_spikes": 0.0,
+            "average_spike_count": 0.0,
+            "average_spike_rate": 0.0,
+        }
+    )
+    results_manager.save()
 
     print(f"Total inference time: {total_time:.4f} seconds")
     print(f"Average time: {average_time * 1000:.4f} ms/sample")
